@@ -1,10 +1,16 @@
 package med.saude.domain;
 
 import java.time.LocalDate;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -12,6 +18,8 @@ import javax.persistence.Table;
 public class Agendamento extends AbstractEntity<Long> {
 
 	private String nome;
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column(name = "data_consulta", nullable = true, columnDefinition = "DATE")
 	private LocalDate dataConsulta;
 	
 	@ManyToOne
