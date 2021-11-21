@@ -21,7 +21,7 @@ public class Medico extends AbstractEntity<Long> {
 	
 	@ManyToMany
 	@JoinColumn(name = "agendamento_id")
-	private List<Agendamento> agendamentos;
+	 private List<Agendamento> agendamentos;
 
 	public String getNome() {
 		return nome;
