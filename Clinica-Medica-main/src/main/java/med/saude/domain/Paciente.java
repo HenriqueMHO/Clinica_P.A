@@ -20,7 +20,7 @@ public class Paciente extends AbstractEntity<Long> {
 	@Column(nullable = false, length = 14)
 	private String cpf;
 	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
+	@Column(name = "data_nascimento", nullable = true, columnDefinition = "DATE")
 	private LocalDate dataNascimento;
 
 //	@OneToMany(mappedBy = "paciente")
