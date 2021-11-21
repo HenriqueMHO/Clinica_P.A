@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import med.saude.domain.Especialidade;
 import med.saude.service.EspecialidadeService;
 
@@ -21,7 +22,7 @@ public class EspecialidadeController {
 	private EspecialidadeService especialidadeService;
 
 	@GetMapping("/cadastrar")
-	public String cadastrar() {
+	public String cadastrar(Especialidade especialidade) {
 		return "/especialidade/cadastro";
 	}
 	
