@@ -43,15 +43,12 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<label for="especialidade_id">Especialidade</label> <select
-							id="especialidade_id" class="form-control" name="especialidade_id">
-							<option value="">Selecione...</option>
-							<option value="1">Clínico Geral</option>
-							<option value="2">Urologista</option>
-							<option value="3">Cardiologista</option>
-							<option value="4">Neurologista</option>
-							<option value="5">Obstetra</option>
+						<label for="especialidade_id">Especialidade</label> <select>
+						<option th:each = "sp:${especialidade}"
+						th:value = "${sp.id}"
+						th:text = "${sp.titulo}" />
 						</select>
+						
 						<div class="invalid-feedback"></div>
 					</div>
 				</div>

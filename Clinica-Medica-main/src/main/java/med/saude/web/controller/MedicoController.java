@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
 import med.saude.domain.Medico;
 import med.saude.service.MedicoService;
+import med.saude.service.EspecialidadeService;
+import med.saude.domain.Especialidade;
 
 @Controller
 @RequestMapping("/medicos")
@@ -17,9 +20,16 @@ public class MedicoController {
 	
 	@Autowired
 	private MedicoService medicoService;
+	
+	@Autowired
+	private EspecialidadeService especialidadeService;
 
 	@GetMapping("/cadastrar")
-	public String cadastrar(Medico medico) {
+	public String cadastrar(ModelMap model) {
+		Medico medico = new Medico();
+		List <Especialidade> especialidade = especialidadeService.buscarTodos();
+		model.addAttribute("medico", medico);
+		model.addAttribute("especialidade", especialidade);
 		return "/medico/cadastro";
 	}
 	
